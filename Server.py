@@ -19,8 +19,8 @@ def takeuser():
     data = request.get_json()
     email = data.get('Email')
 
-    # if email not in users_collection.find({email:email}):
-    #     return "Bhosdike Kuch Aur enter Kar Lawde"
+    if email not in users_collection.find({email:email}):
+        return "User not found"
     
     if not email:
         return jsonify({"error": "Email is required"}), 400
